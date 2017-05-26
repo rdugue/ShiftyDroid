@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 25
@@ -31,33 +31,32 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
-    // Appcompat-v7 (only Anko Commons)
-    compile "org.jetbrains.anko:anko-appcompat-v7-common:$anko_version"
-
-    // Appcompat-v7 (Anko Layouts)
+    compile "org.jetbrains.anko:anko-sdk25:$anko_version"
+    compile "org.jetbrains.anko:anko-sdk25-coroutines:$anko_version"
     compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
-    compile "org.jetbrains.anko:anko-coroutines:$anko_version"
-
-    // CardView-v7
-    compile "org.jetbrains.anko:anko-cardview-v7:$anko_version"
 
     // Design
     compile "org.jetbrains.anko:anko-design:$anko_version"
     compile "org.jetbrains.anko:anko-design-coroutines:$anko_version"
 
-    // GridLayout-v7
-    compile "org.jetbrains.anko:anko-gridlayout-v7:$anko_version"
+    // Retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-moshi:2.0.0'
 
-    // Percent
-    compile "org.jetbrains.anko:anko-percent:$anko_version"
+    // Dagger 2
+    compile 'com.google.dagger:dagger:2.4'
+    kapt 'com.google.dagger:dagger-compiler:2.4'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+    compile 'com.android.support:design:25.3.1'
 
-    // RecyclerView-v7
-    compile "org.jetbrains.anko:anko-recyclerview-v7:$anko_version"
-    compile "org.jetbrains.anko:anko-recyclerview-v7-coroutines:$anko_version"
+    // DBFlow
+    kapt "com.github.raizlabs.DBFlow:dbflow-processor:$dbflow_version"
+    compile "com.github.raizlabs.DBFlow:dbflow-core:$dbflow_version"
+    compile "com.github.raizlabs.DBFlow:dbflow:$dbflow_version"
+}
 
-    // Support-v4 (only Anko Commons)
-    compile "org.jetbrains.anko:anko-support-v4-common:$anko_version"
-
-    // Support-v4 (Anko Layouts)
-    compile "org.jetbrains.anko:anko-support-v4:$anko_version"
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
 }
