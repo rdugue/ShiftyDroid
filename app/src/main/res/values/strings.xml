@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ShiftyDroid</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="week_activity">Choose a day</string>
 </resources>
